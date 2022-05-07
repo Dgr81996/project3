@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+         
+		 #Nav2 {
+           
+           height : 60px;
+           
+          
+          
+           height : 80px;
+           width  :110%;
+           background-color:white;
+           margin-bottom : 20px;
+}
+       
+        #imgicon1 {
+           height : 50px;
+           margin-left:150px;
+           margin-top : 10px;
+		}
+        /* top right bottom left */
+
+
+		form{
+			display: grid;
+            margin-left:30px
+		}
+		.main{
+			width: 35%;
+			margin: auto;
+			
+			margin-left: 800px;
+            margin-top: 50px;
+            
+            height:400px;
+            background-color:white
+		}
+		input{
+			margin-right: 80px;
+			
+			margin-top: 20px;
+			height: 40px;
+          
+		
+            
+            border:1px solid rgb(211, 195, 195)
+		}
+		
+	</style>
+</head>
+<body >
+
+	<div id="Nav2">
+        
+		<image id="imgicon1" src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png?imbypass=true" alt=""></image>
+		
+
+	</div>
+	
+  
+	<!-------------------------------------------------- Navbar Starts---------------------------------------------- -->
+
+	<div class="main">
+	
+	<form>
+		<h2>Login/Create Account<span style="color:red">*</span></h2>
+		
+		<input id="email" type="text" placeholder="Enter email address*">
+		
+		
+		
+		<input id="pass" type="password" placeholder="Enter the password*">
+        
+        <input style="margin-top:40px;background-color:rgb(236, 236, 5)" type="submit" value="login">
+	</form>
+
+	<div></div>
+        
+	
+
+	
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+	
+	document.querySelector("form").addEventListener("submit",login);
+
+	var regUsers=JSON.parse(localStorage.getItem("userDataBase"))||[];
+
+
+	function login(event){
+		event.preventDefault()
+        var eml=document.querySelector("#email").value;
+		var ps=document.querySelector("#pass").value;
+	
+	var ans=true;
+
+	for(var i=0;i<regUsers.length;i++)
+	{
+		if((regUsers[i].emailAdd===eml)&&(regUsers[i].passwd===ps)){
+			window.location.href="index10.html"
+			localStorage.setItem("eml",JSON.stringify(regUsers[i].emailAdd))
+			ans=false;
+			// console.log(regUsers[i])
+			
+		}
+	}
+	if(ans){
+		alert("Number Not registered please signup first or enter registered number");}
+	
+	
+}
+
+
+
+</script>
